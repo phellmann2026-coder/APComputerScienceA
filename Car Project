@@ -1,0 +1,98 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.carproject;
+
+/**
+ *
+ * @author PHellmann2026
+ */
+
+
+//Question 1: The difference between a class and an object is that a class is the blueprint from which the object will be made. For example, you create Car class to build a car later as an object. 
+//Question 2: When you pass an object to a print or println method java converts the object to a string before printing. 
+//Question 3: The scope of a variable in a method is only within that method, or local. The scope of a variable in a class applies throughoutthe class and is accessible by all methods in that class. 
+
+
+public class CarProject {
+    
+    public static void main(String[] args) {
+    
+    //Specific car types as objects 
+    Car vwBug = new Car("VW Bug", 90, 90.0, 22000.0);
+    Car toyotaPrius = new Car("Toyota Prius", 65, 100.0, 19000.0);
+    Car bmwi8 = new Car("BMW i8", 110, 180.0, 440000.0);
+    Car teslaModel3 = new Car("Tesla Model 3", 85, 140.0, 500000.0);
+   
+    Car rivian = new Car("Rivian", 55, 78, 18000);
+    rivian.getEnginePower();
+    rivian.getmaxSpeed();
+    rivian.getprice();
+    
+    //Print information
+    System.out.println(vwBug);
+    System.out.println(toyotaPrius);
+    System.out.println(bmwi8);
+    System.out.println(teslaModel3);
+    System.out.println(rivian);
+    
+    }
+}
+
+class Car {
+    private String carBrand;
+    private int enginePower;
+    private double maxSpeed; 
+    private double price;
+    
+    //Constructor for base car
+    public Car (String inBrand){
+        carBrand = inBrand;
+    }
+    public Car (String inBrand, int inPower, double inSpeed, double inPrice) {
+        carBrand = inBrand;
+        enginePower = inPower;
+        maxSpeed = inSpeed;
+        price = inPrice;
+    }
+   
+    //Get & set car brand
+    public String getCarBrand(){
+        return carBrand;
+    }
+    public void setCarBrand(String carBrand){
+        this.carBrand = carBrand;
+    }
+    
+    //Get and set engine power
+    public int getEnginePower(){
+        return enginePower;
+    }
+    public void setEnginePower(int enginePower){
+        this.enginePower = enginePower;
+    }
+    
+    //Get and set max speed
+     public double getmaxSpeed(){
+        return maxSpeed;
+    }
+    public void setmaxSpeed(double maxSpeed){
+        this.maxSpeed = maxSpeed;
+    }
+    
+    //Get and set price
+    public double getprice(){
+        return price;
+    }
+    public void setprice(double price){
+        this.price = price;
+    }
+    
+    //toString method to print all car details 
+    @Override
+    public String toString(){
+        return "Car Brand: " + carBrand + "\nEngine Power: " + enginePower + " HP" + "\nMax Speed : " + maxSpeed + " MPH" + "\nPrice : $" + price + "\n";
+        
+    }
+}
