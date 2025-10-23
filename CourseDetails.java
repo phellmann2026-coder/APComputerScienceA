@@ -10,7 +10,7 @@ package com.mycompany.coursedetails;
  */
 
 class Course {
-    //Instance data that represents the course title, course code, pointsTotal, and course Intructor's name
+    //Instance data that represents the course title, course code, pointsTotal, and course Instructor's name
     private String title;
     private String code;
     private int pointsTotal;
@@ -75,7 +75,7 @@ class Course {
 }
 
 //Driver class
-class CourseDetails {
+public class CourseDetails {
     public static void main(String[] args) {
         //Instantiate and update course 1 using the full object constructor 
         Course c1 = new Course("AP Computer Science A", "3645", 5, "Dr. Nelson");
