@@ -1,0 +1,118 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.mystore;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author PHellmann2026
+ */
+public class MyStore {
+
+    // Maximum budget constant set to $250
+    public static final double MAX_BUDGET = 250.00;
+    
+    public static void main(String[] args) {
+        // Create scanner object for user input
+        Scanner scan = new Scanner (System.in);
+        
+        // Create Item objects for each product in the store
+        Item tShirt = new Item("T Shirt", 29.99);
+        Item shoes = new Item("Shoes", 125.99);
+        Item jeans = new Item("Jeans", 60.99);
+        Item jacket = new Item("Jacket", 250.00);
+        Item hat = new Item("Hat", 25.99);
+        Item shorts = new Item("Shorts", 75.99);
+        Item blouse = new Item("Blouse", 88.99);
+
+        // Initialize variables to track total cost and item count
+        double total = 0.0;
+        int count = 0;
+        double price;
+        
+        // Main shopping loop - continues until user enters "done"
+        while (true){
+            // Prompt user for item name
+            System.out.println("Enter the name of the item you want to buy and enter \"done\" when finished: ");
+            String item = scan.nextLine();
+            
+            // Check which item the user entered and get its price
+            if (item.equalsIgnoreCase("T Shirt")) price = tShirt.getDblPrice();
+            else if (item.equalsIgnoreCase("Shoes")) price = shoes.getDblPrice();
+            else if (item.equalsIgnoreCase("Jeans")) price = jeans.getDblPrice();
+            else if (item.equalsIgnoreCase("Jacket")) price = jacket.getDblPrice();
+            else if (item.equalsIgnoreCase("Hat")) price = hat.getDblPrice();
+            else if (item.equalsIgnoreCase("Shorts")) price = shorts.getDblPrice();
+            else if (item.equalsIgnoreCase("Blouse")) price = blouse.getDblPrice();
+            // If user enters "done", exit the loop
+            else if (item.equalsIgnoreCase("done")){
+                break;
+            }
+            // If item is not recognized, display error and continue
+            else {
+                System.out.println("Item not found");
+                continue;
+            }         
+            
+            // Check if adding this item would exceed the budget
+            if (total + price > MAX_BUDGET) {
+                System.out.println("You cannot buy that item, it would go over budget!");
+            } else {
+                // Item is within budget - add to total and count
+                total += price;
+                count ++;
+                // Display purchase confirmation and current totals
+                System.out.println("You bought: " + item);
+                System.out.println("Items purchased: " + count);
+                System.out.println("Total cost: $" + String.format("%.2f", total));
+            }
+        }
+        
+        // Display final shopping summary
+        System.out.println("You bought " + count + " items and spent $" + String.format("%.2f", total));
+        // Close the scanner
+        scan.close();
+    }
+}
+
+//Item class represents a store product with a name and price
+class Item {
+    // Private instance variables
+    private String strName = " ";
+    private double dblPrice = 0.0;
+    
+    //Constructor to initialize an Item with name and price inStrName the name of the item and inDblPrice the price of the item
+    public Item(String inStrName, double inDblPrice){
+        strName = inStrName;
+        dblPrice = inDblPrice;
+    }
+    
+    // Accessor (getter) method for item name
+    public String getStrName() {
+        return strName;
+    }
+    
+    // Mutator (setter) method for item name
+    public void setStrName(String strName){
+        this.strName = strName;
+    }
+    
+    // Accessor (getter) method for item price
+    public Double getDblPrice() {
+        return dblPrice;
+    }
+    
+    // Mutator (setter) method for item price
+    public void setDblPrice(Double dblPrice){
+        this.dblPrice = dblPrice;
+    }
+    
+    //Returns string representation of item
+    @Override
+    public String toString(){
+        return "Item " + strName + ", Price: " + dblPrice ;
+    }
+}
