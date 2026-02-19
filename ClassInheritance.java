@@ -39,7 +39,7 @@ public class ClassInheritance {
 
 // The Base Vehicle Class, implements the Speedometer interface
 class Vehicle implements Speedometer{
-    //base (Class wide) variables
+    //Base (Class wide) variables
     protected String brandName = "";
     protected double speed = 0.0;
     protected int passengers = 0;
