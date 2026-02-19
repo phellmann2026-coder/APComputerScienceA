@@ -161,6 +161,7 @@ class JetSki extends Vehicle {
 
 //Airplane #1:
 class Boeing extends Vehicle { 
+    //Maximum altitude plane can travel
     private int maxAltitude; 
     
     public Boeing(){ 
@@ -246,6 +247,7 @@ class Car extends Vehicle{
 
 //Car #1: 
 class ElectricCar extends Car { 
+    //Battery level of car
     private double batteryLevel = 100.0; 
     
     public ElectricCar(){
@@ -263,6 +265,7 @@ class ElectricCar extends Car {
 
 //Car #2:
 class RaceCar extends Car { 
+    //Number of pit stops required per race
     private double pitStopCount; 
     
     public RaceCar(){
@@ -280,6 +283,7 @@ class RaceCar extends Car {
 
 //Other #1: 
 class Submarine extends Vehicle {
+    //Maximum depth sub can travel 
     private int maxDepth;
     
     public Submarine() {
@@ -299,6 +303,7 @@ class Submarine extends Vehicle {
 
 //Other #2: 
 class Rover extends Vehicle {
+    //Number of cameras on rover
     private int cameraCount;
     
     public Rover() {
