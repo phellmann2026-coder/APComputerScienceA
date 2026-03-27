@@ -45,10 +45,10 @@ public class ReadWriteAntFiles {
         String formattedDateTime = now.format(shortFormatter);
         String filePath = "Contacts/ContactList.txt";
         String outPath = "Contacts/ContactList.txt";
-        String contentToWrite = "-- New Contact --" + "\nName: " + name 
-                + "\nEmail: " + email 
-                + "\nGraduation Year: " + grad
-                + "\nUsername: " + user + "\n" + formattedDateTime + "\n";
+        String contentToWrite = name 
+                + ", " + email 
+                + ", " + grad
+                + ", " + user + "\n";
         
         // Write to file
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
